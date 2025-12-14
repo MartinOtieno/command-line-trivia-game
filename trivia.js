@@ -1,12 +1,11 @@
 const readline = require("readline");
 
-// Create CLI interface
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-// Trivia questions array (Array + Objects)
+
 const questions = [
   {
     question: "What does HTML stand for?",
@@ -30,23 +29,20 @@ const questions = [
 
 ];
 
-// Game state variables
 let currentQuestionIndex = 0;
 let score = 0;
 let timer;
 
-// functions
 function startGame() {
   console.log("\n Welcome to the JavaScript Trivia Game!");
   console.log("You have 30 seconds to complete the quiz.\n");
 
-  // Start game timer (Async feature)
+  
   timer = setTimeout(endGame, 30000);
 
   askQuestion();
 }
- 
-// Ask Question Function
+
 function askQuestion() {
   if (currentQuestionIndex >= questions.length) {
     endGame();
@@ -63,7 +59,7 @@ function askQuestion() {
   rl.question("\nEnter your answer (A, B, or C): ", handleAnswer);
 }
 
-// Handle User Answer Function
+
 function handleAnswer(userInput) {
   const correctAnswer = questions[currentQuestionIndex].answer;
 
@@ -71,20 +67,17 @@ function handleAnswer(userInput) {
     console.log("Correct!");
     score++;
   } else {
-    console.log(`Incorrect! The correct answer was ${correctAnswer}`);
+    console.log('Incorrect! The correct answer was ${correctAnswer}');
   }
 
   currentQuestionIndex++;
   askQuestion();
 }
 
-// End Game Function
 function endGame() {
   clearTimeout(timer);
 
   console.log("\nGame Over!");
-
-  // Array iteration method (reduce)
   const totalQuestions = questions.reduce(count => count + 1, 0);
 
   console.log(`Your Score: ${score} / ${totalQuestions}`);
@@ -93,7 +86,6 @@ function endGame() {
   rl.close();
 }
 
-// Initialize Game
 rl.question("Press ENTER to start the quiz...", () => {
   startGame();
 });
