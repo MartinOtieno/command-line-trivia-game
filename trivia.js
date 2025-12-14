@@ -18,11 +18,16 @@ const questions = [
     options: ["A. var", "B. let", "C. const"],
     answer: "C"
   },
-  {
-    question: "Which method converts JSON to a JavaScript object?",
-    options: ["A. JSON.parse()", "B. JSON.stringify()", "C. JSON.convert()"],
-    answer: "A"
-  }
+{
+  question: "In software engineering, what is a variable?",
+  options: [
+    "A. A fixed value that cannot be changed during program execution",
+    "B. A named storage location in memory whose value can change during program execution",
+    "C. A function that performs a specific task"
+  ],
+  answer: "B"
+}
+
 ];
 
 // Game state variables
